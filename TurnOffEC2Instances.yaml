@@ -1,0 +1,19 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Starts an EC2 instance
+Resources:
+  TurnOnEC2Instances:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python2.7
+      CodeUri: .
+      Description: Starts an EC2 instance
+      MemorySize: 128
+      Timeout: 3
+      Role: 'ENTER_ARN_FOR_YOUR_ROLE'
+      Events:
+        Schedule1:
+          Type: Schedule
+          Properties:
+            Schedule: cron(30 17 * * ? *)

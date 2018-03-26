@@ -14,7 +14,7 @@ def lambda_handler(event, context):
     for r in response['Reservations']:
      for i in r['Instances']:
         instances.append(i['InstanceId'])
-    #Uncomment below line to stop instances
-    #ec2.stop_instances(InstanceIds=instances)
+    #Uncomment below line to start instances
+    #ec2.start_instances(InstanceIds=instances)
   
     
